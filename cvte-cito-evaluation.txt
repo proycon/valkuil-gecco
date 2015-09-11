@@ -1,0 +1,82 @@
+OVERALL RESULTS
+=================
+ Documents                                  :  520
+ Total number of corrections in output      :  11298
+ Total number of corrections in reference   :  10831
+ Matching output corrections (tp)           :  3993
+ Missed output corrections (fp)             :  7305
+ Missed reference corrections (fn)          :  8614
+ Virtual total (tp+fn)                      :  12607
+ Precision (micro)                          :  0.35
+ Recall (micro)                             :  0.32
+ F1-score (micro)                           :  0.33
+
+Aggregated corrections when they are on the same words:
+ Aggregated average corrections in output              :  1.07
+ Total number of aggregated corrections in output      :  7768
+ Total number of aggregated corrections in reference   :  10831
+ Matching output aggregated corrections (tp)           :  2219
+ Missed output aggregated corrections (fp)             :  5549
+ Missed reference aggregated corrections (fn)          :  17228
+ Virtual total (tp+fn)                                 :  19447
+ Aggregated precision (micro)                          :  0.29
+ Aggregated recall (micro)                             :  0.11
+ Aggregated F1-score (micro)                           :  0.16
+
+PER-MODULE RESULTS
+====================
+Precision for aspell :  0.29     (884/3005)
+Precision for confusible_als_dan :  0.08     (4/50)
+Precision for confusible_de_het :  0.45     (89/196)
+Precision for confusible_deze_dit :  0.37     (7/19)
+Precision for confusible_hard_hart :  1.0     (1/1)
+Precision for confusible_hun_zij :  0.48     (10/21)
+Precision for confusible_licht_ligt :  1.0     (3/3)
+Precision for confusible_me_mijn :  0.8     (53/66)
+Precision for confusible_u_uw :  0.85     (45/53)
+Precision for confusible_word_wordt :  0.9     (112/125)
+Precision for confusible_zei_zij :  0.8     (4/5)
+Precision for confusiblesuffix_d_dt :  0.69     (9/13)
+Precision for errorlist :  0.71     (256/359)
+Precision for hunspell :  0.48     (932/1929)
+Precision for lexicon :  0.33     (941/2822)
+Precision for lm :  0.13     (50/378)
+Precision for runon :  0.16     (84/510)
+Precision for splits :  0.3     (509/1705)
+
+
+PER-CLASS RESULTS
+====================
+archaic :  P=0	R=0.0	F=0.0
+capitalizationerror :  P=0.0	R=0.0	F=0.0
+confusion :  P=0.41	R=0.21	F=0.28
+missingpunctuation :  P=0	R=0.0	F=0.0
+missingword :  P=0	R=0.0	F=0.0
+nonworderror :  P=0.41	R=0.79	F=0.54
+redundantpunctuation :  P=0	R=0.0	F=0.0
+redundantword :  P=0	R=0.0	F=0.0
+runonerror :  P=0.12	R=0.61	F=0.2
+spliterror :  P=0.3	R=0.61	F=0.4
+uncertain :  P=0	R=0.0	F=0.0
+
+REFERENCE CLASS DISTRIBUTION
+================================
+archaic :  1 0.0%
+capitalizationerror :  2374 21.9%
+confusion :  1832 16.9%
+missingpunctuation :  1849 17.1%
+missingword :  960 8.9%
+nonworderror :  1747 16.1%
+redundantpunctuation :  306 2.8%
+redundantword :  490 4.5%
+runonerror :  333 3.1%
+spliterror :  831 7.7%
+uncertain :  108 1.0%
+
+OUTPUT CLASS DISTRIBUTION
+================================
+capitalizationerror :  5 0.0%
+confusion :  935 8.3%
+nonworderror :  6970 61.7%
+runonerror :  1683 14.9%
+spliterror :  1705 15.1%
