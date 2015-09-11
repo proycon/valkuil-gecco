@@ -1,0 +1,264 @@
+id: valkuil
+root: /vol/tensusers/proycon/valkuil-gecco 
+language: nl
+threads: 12
+debug: 5
+modules:
+    - id: errorlist
+      delimiter: tilde
+      reversedformat: true   #data is in format correct~wrong rather than wrong~correct
+      module: gecco.modules.errorlist.WordErrorListModule
+      models:
+        - models/ValkuilErrors
+    - id: lm
+      module: gecco.modules.lm.TIMBLLMModule
+      threshold: 0.9
+      #freqthreshold: 20
+      sources:
+        - sources/ValkuilCorpus.tok.1Mlines.txt
+        #- sources/ValkuilCorpus.tok.1Mlines.txt
+      models:
+        - models/ValkuilCorpus.1Mlines.lm.ibase
+        #- models/ValkuilCorpus.1Mlines.colibri.patternmodel
+      hapaxsource: sources/ValkuilCorpus.tok.1Mlines.txt
+      hapaxmodel: models/ValkuilCorpus.tok.1Mlines.hapax.colibri.patternmodel
+      hapaxthreshold: 3
+    - id: lexicon
+      module: gecco.modules.lexicon.LexiconModule
+      reversedformat: true
+      freqthreshold: 10000
+      minlength: 5
+      maxlength: 25
+      maxnrclosest: 5
+      maxdistance: 2
+      maxdistance_short: 1
+      sources:
+        - sources/ValkuilCorpus.tok.txt
+      models:
+        - models/ValkuilCorpus.lexicon
+    - id: aspell
+      module: gecco.modules.lexicon.AspellModule
+      language: nl
+      minlength: 5
+      maxlength: 25
+      maxnrclosest: 5
+      maxdistance: 1
+      maxdistance_short: 1
+    - id: hunspell
+      module: gecco.modules.lexicon.HunspellModule
+      language: nl_NL
+      minlength: 5
+      maxlength: 25
+      maxnrclosest: 5
+      maxdistance: 1
+      maxdistance_short: 1
+    - id: runon
+      module: gecco.modules.spacing.RunOnModule
+      freqthreshold: 25
+      sources:
+        - sources/ValkuilCorpus.tok.txt
+      models:
+        - models/ValkuilCorpus.spacing.colibri.patternmodel
+    - id: splits
+      module: gecco.modules.spacing.SplitModule
+      freqthreshold: 25
+      sources:
+        - sources/ValkuilCorpus.tok.txt
+      models:
+        - models/ValkuilCorpus.spacing.colibri.patternmodel
+    - id: confusible_zei_zij
+      module: gecco.modules.confusibles.TIMBLWordConfusibleModule
+      confusibles: [zei,zij]
+      leftcontext: 3
+      rightcontext: 3
+      threshold: 0.75
+      minocc: 5
+      algorithm: IGTree
+      sources:
+        - sources/ValkuilCorpus.tok.txt
+      models:
+        - models/ValkuilCorpus.confusible_zei_zij.ibase
+    - id: confusible_nog_noch
+      module: gecco.modules.confusibles.TIMBLWordConfusibleModule
+      confusibles: [nog,noch]
+      leftcontext: 3
+      rightcontext: 3
+      threshold: 0.75
+      minocc: 5
+      algorithm: IGTree
+      sources:
+        - sources/ValkuilCorpus.tok.txt
+      models:
+        - models/ValkuilCorpus.confusible_nog_noch.ibase
+    - id: confusible_hard_hart
+      module: gecco.modules.confusibles.TIMBLWordConfusibleModule
+      confusibles: [hard,hart]
+      leftcontext: 3
+      rightcontext: 3
+      threshold: 0.75
+      minocc: 5
+      algorithm: IGTree
+      sources:
+        - sources/ValkuilCorpus.tok.txt
+      models:
+        - models/ValkuilCorpus.confusible_hard_hart.ibase
+    - id: confusible_licht_ligt
+      module: gecco.modules.confusibles.TIMBLWordConfusibleModule
+      confusibles: [licht,ligt]
+      leftcontext: 3
+      rightcontext: 3
+      threshold: 0.75
+      minocc: 5
+      algorithm: IGTree
+      sources:
+        - sources/ValkuilCorpus.tok.txt
+      models:
+        - models/ValkuilCorpus.confusible_licht_ligt.ibase
+    - id: confusible_grootte_grote
+      module: gecco.modules.confusibles.TIMBLWordConfusibleModule
+      confusibles: [grootte,grote]
+      leftcontext: 3
+      rightcontext: 3
+      threshold: 0.75
+      minocc: 5
+      algorithm: IGTree
+      sources:
+        - sources/ValkuilCorpus.tok.txt
+      models:
+        - models/ValkuilCorpus.confusible_grootte_grote.ibase
+    - id: confusible_deze_dit
+      module: gecco.modules.confusibles.TIMBLWordConfusibleModule
+      confusibles: [deze,dit]
+      leftcontext: 3
+      rightcontext: 3
+      threshold: 0.75
+      minocc: 5
+      algorithm: IGTree
+      sources:
+        - sources/ValkuilCorpus.tok.txt
+      models:
+        - models/ValkuilCorpus.confusible_deze_dit.ibase
+    - id: confusible_de_het
+      module: gecco.modules.confusibles.TIMBLWordConfusibleModule
+      confusibles: [de,het]
+      leftcontext: 3
+      rightcontext: 3
+      threshold: 0.75
+      minocc: 5
+      algorithm: IGTree
+      sources:
+        - sources/ValkuilCorpus.tok.txt
+      models:
+        - models/ValkuilCorpus.confusible_de_het.ibase
+    #- id: confusible_als_dan
+    #  module: gecco.modules.confusibles.TIMBLWordConfusibleModule
+    #  confusibles: [als,dan]
+    #  leftcontext: 3
+    #  rightcontext: 3
+    #  threshold: 0.75
+    #  minocc: 5
+    #  algorithm: IGTree
+    #  sources:
+    #    - sources/ValkuilCorpus.tok.txt
+    #  models:
+    #    - models/ValkuilCorpus.confusible_als_dan.ibase
+    #- id: confusible_hen_hun
+    #  module: gecco.modules.confusibles.TIMBLWordConfusibleModule
+    #  confusibles: [hen,hun]
+    #  leftcontext: 3
+    #  rightcontext: 3
+    #  threshold: 0.75
+    #  minocc: 5
+    #  algorithm: IGTree
+    #  sources:
+    #    - sources/ValkuilCorpus.tok.txt
+    #  models:
+    #    - models/ValkuilCorpus.confusible_hen_hun.ibase
+    - id: confusible_u_uw
+      module: gecco.modules.confusibles.TIMBLWordConfusibleModule
+      confusibles: [u,uw]
+      leftcontext: 3
+      rightcontext: 3
+      threshold: 0.75
+      minocc: 5
+      algorithm: IGTree
+      sources:
+        - sources/ValkuilCorpus.tok.txt
+      models:
+        - models/ValkuilCorpus.confusible_u_uw.ibase
+    - id: confusible_kan_ken
+      module: gecco.modules.confusibles.TIMBLWordConfusibleModule
+      confusibles: [kan,ken]
+      leftcontext: 3
+      rightcontext: 3
+      threshold: 0.75
+      minocc: 5
+      algorithm: IGTree
+      sources:
+        - sources/ValkuilCorpus.tok.txt
+      models:
+        - models/ValkuilCorpus.confusible_kan_ken.ibase
+    - id: confusible_me_mijn
+      module: gecco.modules.confusibles.TIMBLWordConfusibleModule
+      confusibles: [me,mijn]
+      leftcontext: 3
+      rightcontext: 3
+      threshold: 0.75
+      minocc: 5
+      algorithm: IGTree
+      sources:
+        - sources/ValkuilCorpus.tok.txt
+      models:
+        - models/ValkuilCorpus.confusible_me_mijn.ibase
+    - id: confusible_word_wordt
+      module: gecco.modules.confusibles.TIMBLWordConfusibleModule
+      confusibles: [word,wordt]
+      leftcontext: 3
+      rightcontext: 3
+      threshold: 0.75
+      minocc: 5
+      algorithm: IGTree
+      sources:
+        - sources/ValkuilCorpus.tok.txt
+      models:
+        - models/ValkuilCorpus.confusible_word_wordt.ibase
+    - id: confusible_hun_zij
+      module: gecco.modules.confusibles.TIMBLWordConfusibleModule
+      confusibles: [hun,zij]
+      leftcontext: 3
+      rightcontext: 3
+      threshold: 0.75
+      minocc: 5
+      algorithm: IGTree
+      sources:
+        - sources/ValkuilCorpus.tok.txt
+      models:
+        - models/ValkuilCorpus.confusible_hun_zij.ibase
+    - id: confusiblesuffix_d_dt
+      module: gecco.modules.confusibles.TIMBLSuffixConfusibleModule
+      suffixes: [d,dt]
+      leftcontext: 3
+      rightcontext: 3
+      threshold: 0.75
+      minocc: 5
+      freqthreshold: 50
+      maxlength: 25
+      minlength: 4
+      maxratio: 100
+      algorithm: IGTree
+      sources:
+        - sources/ValkuilCorpus.tok.txt
+        - sources/ValkuilCorpus.tok.txt
+      models:
+        - models/ValkuilCorpus.confusiblesuffix_d_dt.lst
+        - models/ValkuilCorpus.confusiblesuffix_d_dt.ibase
+    - id: dummy
+      module: gecco.modules.dummy.DummyModule
+    - id: puncrecase
+      module: gecco.modules.puncrecase.TIMBLPuncRecaseModule
+      deletionthreshold: 0.95
+      insertionthreshold: 0.5
+      sources:
+        - sources/ValkuilCorpus.tok.1Mlines.txt
+      models:
+        - models/ValkuilCorpus.1Mlines.puncrecase.ibase
