@@ -256,11 +256,13 @@ modules:
         - models/ValkuilCorpus.confusiblesuffix_d_dt.ibase
     - id: dummy
       module: gecco.modules.dummy.DummyModule
-    - id: puncrecase
-      module: gecco.modules.puncrecase.TIMBLPuncRecaseModule
-      deletionthreshold: 0.95
-      insertionthreshold: 0.5
-      sources:
-        - sources/ValkuilCorpus.tok.1Mlines.txt
-      models:
-        - models/ValkuilCorpus.1Mlines.puncrecase.ibase
+    #- id: puncrecase
+    #  module: gecco.modules.puncrecase.TIMBLPuncRecaseModule
+    #  deletionthreshold: 999
+    #  insertionthreshold: 0.9
+    #  capitalizationthreshold: 0.9
+    #  debug: 5
+    #  sources:
+    #    - sources/ValkuilCorpus.tok.1Mlines.txt
+    #  models:
+    #    - models/ValkuilCorpus.1Mlines.puncrecase.ibase
