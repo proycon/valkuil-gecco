@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ -z $PYTHONPATH ]; then
-    export PYTHONPATH=/home/proycon/work/valkuil-gecco/valkuilwebservice
+    export PYTHONPATH=`pwd`
 else
-    export PYTHONPATH=/home/proycon/work/valkuil-gecco/valkuilwebservice:$PYTHONPATH
+    export PYTHONPATH=`pwd`:$PYTHONPATH
 fi
 clamservice valkuilwebservice
