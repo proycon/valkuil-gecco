@@ -1,0 +1,7 @@
+Install CLAM from the Python package index with: 
+
+ $ pip3 install clam
+
+You may need to use sudo for global installation. We recommend the use of Python virtual environment.
+
+The webservice runs from this directory directly. No further installation is necessary.
