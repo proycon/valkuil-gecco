@@ -223,6 +223,18 @@ PARAMETERS =  [
     ] )
 ]
 
+
+# ======== ACTIONS ===========
+
+ACTIONS = [
+    Action(id="process_sentence", name="Process Sentence", description="Processes a single tokenised sentence and returns a JSON reply containing suggestions for correction",
+        command=WEBSERVICEDIR + "/process_sentence.py "  + VALKUILDIR + " $PARAMETERS",
+        allowanonymous=True,
+        mimetype="application/json",
+        parameters=[
+        StringParameter(id="sentence",name="Sentence",description="The sentence to check, must be tokenised!",required=True),
+    ])
+]
 # ======== DISPATCHING (ADVANCED! YOU CAN SAFELY SKIP THIS!) ========
 
 #The dispatcher to use (defaults to clamdispatcher.py), you almost never want to change this
