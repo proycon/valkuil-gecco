@@ -2,7 +2,7 @@ id: valkuil
 root: /vol/tensusers/proycon/valkuil-gecco 
 language: nl
 threads: 12
-debug: 5
+debug: 0
 modules:
     - id: errorlist
       delimiter: tilde
