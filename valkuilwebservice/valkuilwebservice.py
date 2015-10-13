@@ -84,7 +84,7 @@ if 'VIRTUAL_ENV' in os.environ:
         REALM = "WEBSERVICES-LST"
         DIGESTOPAQUE = open(os.environ['CLAM_DIGESTOPAQUEFILE']).read().strip()
         SECRET_KEY = open(os.environ['CLAM_SECRETKEYFILE']).read().strip()
-        VALKUILDIR = "/scratch2/www/webservices-lst/live/repo/valkuil-gecco/"
+        VALKUILDIR = "/scratch2/www/valkuil-gecco/"
         ADMINS = ['proycon','antalb','wstoop']
 elif host == 'caprica' or host == 'roma' or host == 'mhysa': #proycon's laptop/server
     CLAMDIR = "/home/proycon/work/clam"
