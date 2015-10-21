@@ -36,14 +36,15 @@ modules:
         - sources/ValkuilCorpus.tok.txt
       models:
         - models/ValkuilCorpus.lexicon
-    #- id: aspell
-    #  module: gecco.modules.lexicon.AspellModule
-    #  language: nl
-    #  minlength: 5
-    #  maxlength: 25
-    #  maxnrclosest: 5
-    #  maxdistance: 1
-    #  maxdistance_short: 1
+    - id: aspell
+      enabled: false
+      module: gecco.modules.lexicon.AspellModule
+      language: nl
+      minlength: 5
+      maxlength: 25
+      maxnrclosest: 5
+      maxdistance: 1
+      maxdistance_short: 1
     - id: hunspell
       module: gecco.modules.lexicon.HunspellModule
       language: nl_NL
@@ -256,13 +257,14 @@ modules:
         - models/ValkuilCorpus.confusiblesuffix_d_dt.ibase
     - id: dummy
       module: gecco.modules.dummy.DummyModule
-    #- id: puncrecase
-    #  module: gecco.modules.puncrecase.TIMBLPuncRecaseModule
-    #  deletionthreshold: 999
-    #  insertionthreshold: 0.9
-    #  capitalizationthreshold: 0.9
-    #  debug: 5
-    #  sources:
-    #    - sources/ValkuilCorpus.tok.1Mlines.txt
-    #  models:
-    #    - models/ValkuilCorpus.1Mlines.puncrecase.ibase
+    - id: puncrecase
+      enabled: false
+      module: gecco.modules.puncrecase.TIMBLPuncRecaseModule
+      deletionthreshold: 999
+      insertionthreshold: 0.9
+      capitalizationthreshold: 0.9
+      debug: 5
+      sources:
+        - sources/ValkuilCorpus.tok.1Mlines.txt
+      models:
+        - models/ValkuilCorpus.1Mlines.puncrecase.ibase
