@@ -36,14 +36,14 @@ modules:
         - sources/ValkuilCorpus.tok.txt
       models:
         - models/ValkuilCorpus.lexicon
-    - id: aspell
-      module: gecco.modules.lexicon.AspellModule
-      language: nl
-      minlength: 5
-      maxlength: 25
-      maxnrclosest: 5
-      maxdistance: 1
-      maxdistance_short: 1
+    #- id: aspell
+    #  module: gecco.modules.lexicon.AspellModule
+    #  language: nl
+    #  minlength: 5
+    #  maxlength: 25
+    #  maxnrclosest: 5
+    #  maxdistance: 1
+    #  maxdistance_short: 1
     - id: hunspell
       module: gecco.modules.lexicon.HunspellModule
       language: nl_NL
