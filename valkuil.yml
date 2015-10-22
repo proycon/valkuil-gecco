@@ -258,6 +258,7 @@ modules:
         - models/ValkuilCorpus.confusiblesuffix_d_dt.lst
         - models/ValkuilCorpus.confusiblesuffix_d_dt.ibase
     - id: dummy
+      enabled: false
       module: gecco.modules.dummy.DummyModule
     - id: puncrecase
       enabled: false
