@@ -57,7 +57,7 @@ if 'VIRTUAL_ENV' in os.environ:
     ROOT = os.environ['VIRTUAL_ENV'] + "/valkuil.clam/"
     PORT = 8080
     BINDIR = os.environ['VIRTUAL_ENV'] + '/bin/'
-    VALKUILDIR = os.environ['VIRTUAL_ENV'] + '/valkuil-gecco/'
+    VALKUILDIR = os.environ['VIRTUAL_ENV'] + '/src/valkuil-gecco/'
 
     if host == 'applejack': #configuration for server in Nijmegen
         HOST = "webservices-lst.science.ru.nl"
