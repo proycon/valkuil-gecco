@@ -59,6 +59,7 @@ modules:
       module: gecco.modules.spacing.RunOnModule
       freqthreshold: 25
       partthreshold: 3000
+      freqratio: 100
       sources:
         - sources/ValkuilCorpus.tok.txt
       models:
@@ -66,7 +67,7 @@ modules:
     - id: splits
       module: gecco.modules.spacing.SplitModule
       freqthreshold: 25
-      freqratio: 1
+      freqratio: 100
       sources:
         - sources/ValkuilCorpus.tok.txt
       models:
