@@ -29,7 +29,7 @@ with io.open('sentence.txt', 'w', encoding='utf-8') as f:
 #gecco will output JSON to stdout
 cmd = "gecco " + shellsafe(VALKUILDIR + '/valkuil.yml','"') + " run --json " + shellsafe('sentence.txt','"')
 print("Invoking gecco: " + cmd,file=sys.stderr)
-returncode = subprocess.call(cmd, stderr=subprocess.STDERR)
+returncode = subprocess.call(cmd, stderr=sys.stderr)
 sys.exit(returncode)
 
 
