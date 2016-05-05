@@ -26,7 +26,9 @@ with io.open('sentence.txt', 'w', encoding='utf-8') as f:
     f.write(sentence)
 
 #gecco will output JSON to stdout
-r = os.system("gecco " + shellsafe(VALKUILDIR + '/valkuil.yml','"') + " run --json " + shellsafe('sentence.txt','"'))
+cmd = "gecco " + shellsafe(VALKUILDIR + '/valkuil.yml','"') + " run --json " + shellsafe('sentence.txt','"')
+print("Invoking gecco: " + cmd,file=sys.stderr)
+r = os.system(cmd)
 sys.exit(r)
 
 
