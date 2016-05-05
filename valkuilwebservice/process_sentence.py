@@ -9,6 +9,7 @@ import sys
 import os
 import random
 import shutil
+import subprocess
 import io
 
 #import CLAM-specific modules. The CLAM API makes a lot of stuff easily accessible.
@@ -28,8 +29,8 @@ with io.open('sentence.txt', 'w', encoding='utf-8') as f:
 #gecco will output JSON to stdout
 cmd = "gecco " + shellsafe(VALKUILDIR + '/valkuil.yml','"') + " run --json " + shellsafe('sentence.txt','"')
 print("Invoking gecco: " + cmd,file=sys.stderr)
-r = os.system(cmd)
-sys.exit(r)
+p = subprocess.run(cmd, stderr=subprocess.STDERR)
+sys.exit(p.returncode)
 
 
 
