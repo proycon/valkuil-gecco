@@ -30,7 +30,7 @@ from base64 import b64decode as D
 import sys
 import os
 
-REQUIRE_VERSION = 0.99
+REQUIRE_VERSION = 2.1
 
 CLAMDIR = clam.__path__[0] #directory where CLAM is installed, detected automatically
 WEBSERVICEDIR = os.path.dirname(os.path.abspath(__file__)) #directory where this webservice is installed, detected automatically
@@ -231,6 +231,7 @@ ACTIONS = [
     Action(id="process_sentence", name="Process Sentence", description="Processes a single tokenised sentence and returns a JSON reply containing suggestions for correction",
         command=WEBSERVICEDIR + "/process_sentence.py "  + VALKUILDIR + " $PARAMETERS",
         allowanonymous=True,
+        tmpdir=True,
         mimetype="application/json",
         parameters=[
         StringParameter(id="sentence",name="Sentence",description="The sentence to check, must be tokenised!",required=True),
