@@ -86,6 +86,33 @@ if 'VIRTUAL_ENV' in os.environ:
         SECRET_KEY = open(os.environ['CLAM_SECRETKEYFILE']).read().strip()
         VALKUILDIR = "/scratch2/www/valkuil-gecco/"
         ADMINS = ['proycon','antalb','wstoop']
+    elif host == 'mlp01': #configuration for server in Nijmegen
+        HOST = "new.webservices-lst.science.ru.nl"
+        URLPREFIX = 'valkuil'
+
+        if not 'CLAMTEST' in os.environ:
+            ROOT = "/var/www/webservices-lst/live/writable/valkuil/"
+            if 'CLAMSSL' in os.environ:
+                PORT = 443
+            else:
+                PORT = 80
+        else:
+            ROOT = "/var/www/webservices-lst/test/writable/valkuil/"
+            PORT = 81
+
+        USERS_MYSQL = {
+            'host': 'mysql-clamopener.science.ru.nl',
+            'user': 'clamopener',
+            'password': D(open(os.environ['CLAMOPENER_KEYFILE']).read().strip()),
+            'database': 'clamopener',
+            'table': 'clamusers_clamusers'
+        }
+        DEBUG = True
+        REALM = "WEBSERVICES-LST"
+        DIGESTOPAQUE = open(os.environ['CLAM_DIGESTOPAQUEFILE']).read().strip()
+        SECRET_KEY = open(os.environ['CLAM_SECRETKEYFILE']).read().strip()
+        VALKUILDIR = "/var/www/lamachine/src/valkuil-gecco/"
+        ADMINS = ['proycon','antalb','wstoop']
 elif host == 'caprica' or host == 'roma' or host == 'mhysa': #proycon's laptop/server
     CLAMDIR = "/home/proycon/work/clam"
     ROOT = "/home/proycon/work/valkuil.clam/"
