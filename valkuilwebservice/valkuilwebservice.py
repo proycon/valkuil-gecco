@@ -87,7 +87,7 @@ if 'VIRTUAL_ENV' in os.environ:
         VALKUILDIR = "/scratch2/www/valkuil-gecco/"
         ADMINS = ['proycon','antalb','wstoop']
     elif host == 'mlp01': #configuration for server in Nijmegen
-        HOST = "new.webservices-lst.science.ru.nl"
+        HOST = "webservices-lst.science.ru.nl"
         URLPREFIX = 'valkuil'
 
         if not 'CLAMTEST' in os.environ:
