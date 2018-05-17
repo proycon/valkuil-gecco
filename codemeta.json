@@ -1,0 +1,75 @@
+{
+    "@context": [
+        "https://doi.org/10.5063/schema/codemeta-2.0",
+        "http://schema.org",
+        {
+            "entryPoints": { "@reverse": "schema:actionApplication" },
+            "interfaceType": { "@id": "codemeta:interfaceType" }
+        }
+    ],
+    "@type": "SoftwareSourceCode",
+    "identifier": "valkuil-gecco",
+    "name": "Valkuil.net",
+    "version": "1.0",
+    "description": "A Dutch context-sensitive spelling recognition system",
+    "license": "AGPLv3",
+	"url": "http://valkuil.net",
+    "producer": {
+        "@id": "https://www.ru.nl/clst",
+        "@type": "Organization",
+        "name": "Centre for Language and Speech Technology",
+        "url": "https://www.ru.nl/clst",
+        "parentOrganization": {
+            "@id": "https://www.ru.nl/cls",
+            "@type": "Organization",
+            "name": "Centre for Language Studies",
+            "url": "https://www.ru.nl/cls",
+            "parentOrganization": {
+                "@id": "https://www.ru.nl",
+                "name": "Radboud University",
+                "@type": "Organization",
+                "url": "https://www.ru.nl",
+                "location": {
+                    "@type": "Place",
+                    "name": "Nijmegen"
+                }
+            }
+
+        }
+    },
+    "author": [
+		{
+			"@type": "Person",
+			"givenName": "Maarten",
+			"familyName": "van Gompel",
+			"email": "proycon@anaproy.nl",
+			"affiliation": { "@id": "https://www.ru.nl/clst" }
+		},
+		{
+			"@type": "Person",
+			"givenName": "Antal",
+			"familyName": "van den Bosch",
+			"email": "antal.vandenbosch@let.ru.nl",
+			"affiliation": { "@id": "https://www.ru.nl/cls" }
+		}
+	],
+	"sourceOrganization": { "@id": "https://www.ru.nl/clst" },
+	"operatingSystem": "POSIX",
+	"codeRepository": "https://github.com/proycon/valkuil-gecco",
+    "softwareRequirements": [
+        {
+			"@type": "SoftwareApplication",
+			"identifier": "gecco",
+			"name": "gecco"
+		}
+	],
+    "funder": {
+        "@type": "Organization",
+        "name": "NWO Vici"
+    },
+	"readme": "https://github.com/proycon/valkuil-gecco/blob/master/README.md",
+	"issueTracker": "https://github.com/proycon/valkuil-gecco/issues",
+	"developmentStatus": "inactive",
+	"keywords":  [ "nlp", "speech recognition", "dutch" ],
+	"dateCreated": "2010-01-01"
+}
