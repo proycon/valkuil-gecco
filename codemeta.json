@@ -71,5 +71,12 @@
 	"issueTracker": "https://github.com/proycon/valkuil-gecco/issues",
 	"developmentStatus": "inactive",
 	"keywords":  [ "nlp", "speech recognition", "dutch" ],
-	"dateCreated": "2010-01-01"
+	"dateCreated": "2010-01-01",
+    "entryPoints": [
+        {
+         "@type": "EntryPoint",
+          "urlTemplate": "http://valkuil.net",
+          "interfaceType": "WUI"
+        }
+   ]
 }
