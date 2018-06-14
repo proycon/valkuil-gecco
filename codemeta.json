@@ -4,7 +4,9 @@
         "http://schema.org",
         {
             "entryPoints": { "@reverse": "schema:actionApplication" },
-            "interfaceType": { "@id": "codemeta:interfaceType" }
+            "interfaceType": { "@id": "codemeta:interfaceType" },
+            "inputLanguage": { "@id": "codemeta:inputLanguage" },
+            "inputFormat": { "@id": "codemeta:inputFormat" }
         }
     ],
     "@type": "SoftwareSourceCode",
@@ -72,6 +74,20 @@
 	"developmentStatus": "inactive",
 	"keywords":  [ "nlp", "speech recognition", "dutch" ],
 	"dateCreated": "2010-01-01",
+    "inputFormat": [ "text/plain", "application/folia+xml" ],
+    "outputFormat" : [ "application/folia+xml" ],
+    "inputLanguage": {
+        "@type": "Language",
+        "name": "Dutch",
+        "alternateName": "nld",
+        "sameAs": "http://www.lexvo.org/data/iso639-3/nld"
+    },
+    "outputLanguage": {
+        "@type": "Language",
+        "name": "Dutch",
+        "alternateName": "nld",
+        "sameAs": "http://www.lexvo.org/data/iso639-3/nld"
+    },
     "entryPoints": [
         {
          "@type": "EntryPoint",
