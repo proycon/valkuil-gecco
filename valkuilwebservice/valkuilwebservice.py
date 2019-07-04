@@ -145,7 +145,7 @@ ADMINS = None #List of usernames that are administrator and can access the admin
 REQUIREMEMORY = 20
 
 #Maximum load average at which processes are still started (first number reported by 'uptime')
-MAXLOADAVG = 18
+MAXLOADAVG = 25
 
 # ======== WEB-APPLICATION STYLING =============
 
