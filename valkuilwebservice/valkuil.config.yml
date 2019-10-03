@@ -1,0 +1,6 @@
+port: 8801
+root: "{{VIRTUAL_ENV}}/valkuil.clam"
+bindir: "{{VIRTUAL_ENV}}/bin"
+valkuildir: "{{VIRTUAL_ENV}}/src/valkuil-gecco"
+flaturl: "https://flat.science.ru.nl"
+

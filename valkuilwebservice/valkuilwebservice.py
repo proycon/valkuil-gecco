@@ -30,7 +30,7 @@ from base64 import b64decode as D
 import sys
 import os
 
-REQUIRE_VERSION = 2.1
+REQUIRE_VERSION = 2.3
 
 CLAMDIR = clam.__path__[0] #directory where CLAM is installed, detected automatically
 WEBSERVICEDIR = os.path.dirname(os.path.abspath(__file__)) #directory where this webservice is installed, detected automatically
@@ -50,78 +50,6 @@ SYSTEM_DESCRIPTION = "Valkuil Spellingcorrectie voor het Nederlands. Aangedreven
 
 # ======== LOCATION ===========
 
-#Add a section for your host:
-
-host = os.uname()[1]
-if 'VIRTUAL_ENV' in os.environ:
-    ROOT = os.environ['VIRTUAL_ENV'] + "/valkuil.clam/"
-    PORT = 8080
-    BINDIR = os.environ['VIRTUAL_ENV'] + '/bin/'
-    VALKUILDIR = os.environ['VIRTUAL_ENV'] + '/src/valkuil-gecco/'
-
-    if host == 'applejack': #configuration for server in Nijmegen
-        HOST = "webservices-lst.science.ru.nl"
-        URLPREFIX = 'valkuil'
-
-        if not 'CLAMTEST' in os.environ:
-            ROOT = "/scratch2/www/webservices-lst/live/writable/valkuil/"
-            if 'CLAMSSL' in os.environ:
-                PORT = 443
-            else:
-                PORT = 80
-        else:
-            ROOT = "/scratch2/www/webservices-lst/test/writable/valkuil/"
-            PORT = 81
-
-        USERS_MYSQL = {
-            'host': 'mysql-clamopener.science.ru.nl',
-            'user': 'clamopener',
-            'password': D(open(os.environ['CLAMOPENER_KEYFILE']).read().strip()),
-            'database': 'clamopener',
-            'table': 'clamusers_clamusers'
-        }
-        DEBUG = True
-        REALM = "WEBSERVICES-LST"
-        DIGESTOPAQUE = open(os.environ['CLAM_DIGESTOPAQUEFILE']).read().strip()
-        SECRET_KEY = open(os.environ['CLAM_SECRETKEYFILE']).read().strip()
-        VALKUILDIR = "/scratch2/www/valkuil-gecco/"
-        ADMINS = ['proycon','antalb','wstoop']
-    elif host == 'mlp01': #configuration for server in Nijmegen
-        HOST = "webservices-lst.science.ru.nl"
-        URLPREFIX = 'valkuil'
-
-        if not 'CLAMTEST' in os.environ:
-            ROOT = "/var/www/webservices-lst/live/writable/valkuil/"
-            if 'CLAMSSL' in os.environ:
-                PORT = 443
-            else:
-                PORT = 80
-        else:
-            ROOT = "/var/www/webservices-lst/test/writable/valkuil/"
-            PORT = 81
-
-        USERS_MYSQL = {
-            'host': 'mysql-clamopener.science.ru.nl',
-            'user': 'clamopener',
-            'password': D(open(os.environ['CLAMOPENER_KEYFILE']).read().strip()),
-            'database': 'clamopener',
-            'table': 'clamusers_clamusers'
-        }
-        DEBUG = True
-        REALM = "WEBSERVICES-LST"
-        DIGESTOPAQUE = open(os.environ['CLAM_DIGESTOPAQUEFILE']).read().strip()
-        SECRET_KEY = open(os.environ['CLAM_SECRETKEYFILE']).read().strip()
-        VALKUILDIR = "/var/www/lamachine/src/valkuil-gecco/"
-        ADMINS = ['proycon','antalb','wstoop']
-elif host == 'caprica' or host == 'roma' or host == 'mhysa': #proycon's laptop/server
-    CLAMDIR = "/home/proycon/work/clam"
-    ROOT = "/home/proycon/work/valkuil.clam/"
-    PORT = 9001
-    BINDIR = '/usr/local/bin/'
-    #URLPREFIX = 'ucto'
-    VALKUILDIR = '/home/proycon/work/valkuil-gecco/'
-else:
-    raise Exception("I don't know where I'm running from! Got " + host)
 
 # ======== AUTHENTICATION & SECURITY ===========
 
@@ -130,9 +58,6 @@ else:
 #set security realm, a required component for hashing passwords (will default to SYSTEM_ID if not set)
 #REALM = SYSTEM_ID
 
-USERS = None #no user authentication/security (this is not recommended for production environments!)
-
-ADMINS = None #List of usernames that are administrator and can access the administrative web-interface (on URL /admin/)
 
 #If you want to enable user-based security, you can define a dictionary
 #of users and (hashed) passwords here. The actual authentication will proceed
@@ -146,6 +71,9 @@ REQUIREMEMORY = 20
 
 #Maximum load average at which processes are still started (first number reported by 'uptime')
 MAXLOADAVG = 25
+
+#load external configuration file
+loadconfig(__name__)
 
 # ======== WEB-APPLICATION STYLING =============
 
@@ -192,6 +120,8 @@ PROFILES = [
         ),
         #------------------------------------------------------------------------------------------------------------------------
         OutputTemplate('foliaoutput',FoLiAXMLFormat,'FoLiA Document with spelling suggestions',
+            FoLiAViewer(),
+            FLATViewer(url=FLATURL, mode='viewer'),
             removeextension=['.txt'],
             extension='.xml',
             multi=True
@@ -205,6 +135,8 @@ PROFILES = [
         ),
         #------------------------------------------------------------------------------------------------------------------------
         OutputTemplate('foliaoutput',FoLiAXMLFormat,'FoLiA Document with spelling suggestions',
+            FoLiAViewer(),
+            FLATViewer(url=FLATURL, mode='viewer'),
             removeextension=['.xml'],
             extension='.xml',
             multi=True
