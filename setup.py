@@ -33,7 +33,7 @@ setup(
         "Intended Audience :: Science/Research",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     ],
-    package_data = {'valkuilwebservice':['*.yml'] },
+    package_data = {'valkuilwebservice':['*.yml','*.wsgi'] },
     include_package_data=True,
     install_requires=['CLAM >= 2.3', 'natsort', 'gecco']
 )
