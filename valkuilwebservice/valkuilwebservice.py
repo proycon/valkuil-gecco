@@ -120,8 +120,8 @@ PROFILES = [
         ),
         #------------------------------------------------------------------------------------------------------------------------
         OutputTemplate('foliaoutput',FoLiAXMLFormat,'FoLiA Document with spelling suggestions',
+            FLATViewer(url=FLATURL,  configuration="valkuil", mode='viewer'),
             FoLiAViewer(),
-            FLATViewer(url=FLATURL, mode='viewer'),
             removeextension=['.txt'],
             extension='.xml',
             multi=True
@@ -135,8 +135,8 @@ PROFILES = [
         ),
         #------------------------------------------------------------------------------------------------------------------------
         OutputTemplate('foliaoutput',FoLiAXMLFormat,'FoLiA Document with spelling suggestions',
+            FLATViewer(url=FLATURL, configuration="valkuil", mode='viewer'),
             FoLiAViewer(),
-            FLATViewer(url=FLATURL, mode='viewer'),
             removeextension=['.xml'],
             extension='.xml',
             multi=True
