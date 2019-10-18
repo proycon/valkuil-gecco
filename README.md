@@ -1,6 +1,9 @@
+[![Language Machines Badge](http://applejack.science.ru.nl/lamabadge.php/valkuil-gecco)](http://applejack.science.ru.nl/languagemachines/) [![GitHub release](https://img.shields.io/github/release/LanguageMachines/frog.svg)](https://GitHub.com/proycon/valkuil-gecco/releases/) [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
+
+
 Valkuil.net powered by GECCO
 -------------------------------
- 
+
  by Maarten van Gompel, Antal van den Bosch
  Centre for Language Studies
  Radboud University Nijmegen
@@ -65,7 +68,7 @@ correcties.
 
 **Hoe kan ik Valkuil zelf draaien?** De makkelijkste optie is door vanuit je
 programma verbinding te maken met onze Valkuil webservice, zie
-https://webservices-lst.science.ru.nl . 
+https://webservices-lst.science.ru.nl .
 
 Wil je Gecco met Valkuil lokaal draaien dan zul je zeer goede hardware moeten
 hebben, met name veel geheugen (minimaal 32GB). We verwijzen naar de
@@ -74,12 +77,12 @@ hebben, met name veel geheugen (minimaal 32GB). We verwijzen naar de
 Is Gecco eenmaal geinstalleerd, dan kan je de valkuil modellen uit deze git
 repository gebruiken. De corpus bronnen waaruit deze modellen zijn samengesteld
 kunnen we door restrictieve auteursrechten helaas niet openbaar beschikbaar
-maken. 
+maken.
 
 Slechts een klein aantal modellen zit daadwerkelijk in deze git repository, de
 rest moet gedownload worden door het ``download-models.sh`` script aan te
 roepen. Dit is een download van 500MB, maar neemt na decompressie rond de 1GB
-in beslag.  
+in beslag.
 
 
 
