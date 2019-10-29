@@ -221,7 +221,7 @@ PARAMETERS =  [
 
 ACTIONS = [
     Action(id="process", name="Tekstcorrectie", description="Controleer een Nederlandse tekst op spelfouten.",
-        command=WEBSERVICEDIR + "/process_sentence.py "  + VALKUILDIR + " $PARAMETERS",
+        command=WEBSERVICEDIR + "/process_text.py "  + VALKUILDIR + " $PARAMETERS",
         allowanonymous=True,
         tmpdir=True,
         mimetype="application/xml",

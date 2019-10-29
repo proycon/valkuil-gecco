@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-
 #import some general python modules:
 import sys
 import os
@@ -18,18 +17,14 @@ shellsafe = clam.common.data.shellsafe
 
 #this script takes three arguments from CLAM: $PARAMETERS  (as configured at COMMAND= in the service configuration file)
 VALKUILDIR = sys.argv[1]
-sentence = sys.argv[2]
+text = sys.argv[2]
 
-with io.open('sentence.txt', 'w', encoding='utf-8') as f:
-    f.write(sentence)
+with io.open('text.txt', 'w', encoding='utf-8') as f:
+    f.write(text)
 
 #gecco will output JSON to stdout
-cmd = "gecco " + shellsafe(VALKUILDIR + '/valkuil.yml','"') + " run --json " + shellsafe('sentence.txt','"')
+cmd = "gecco " + shellsafe(VALKUILDIR + '/valkuil.yml','"') + " run -o output.folia.xml test.txt"
 print("Invoking gecco: " + cmd,file=sys.stderr)
 returncode = subprocess.call(cmd,shell=True, stderr=sys.stderr)
+os.system("cat output.folia.xml")
 sys.exit(returncode)
-
-
-
-
-

@@ -24,9 +24,6 @@
 #passing all parameters on the command line.
 
 
-#If we run on Python 2.7, behave as much as Python 3 as possible
-from __future__ import print_function, unicode_literals, division, absolute_import
-
 #import some general python modules:
 import sys
 import os
@@ -38,7 +35,7 @@ import string
 import clam.common.data
 import clam.common.status
 
-#When the wrapper is started, the current working directory corresponds to the project directory, input files are in input/ , output files should go in output/ . 
+#When the wrapper is started, the current working directory corresponds to the project directory, input files are in input/ , output files should go in output/ .
 
 #make a shortcut to the shellsafe() function
 shellsafe = clam.common.data.shellsafe
