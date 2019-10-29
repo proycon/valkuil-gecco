@@ -47,6 +47,10 @@ SYSTEM_NAME = "Valkuil.net"
 
 SYSTEM_AUTHOR = "Maarten van Gompel, Antal van den Bosch"
 
+SYSTEM_AFFILIATION = "Centre for Language and Speech Technology, Radboud University"
+
+SYSTEM_URL = "https://github.com/proycon/valkuil-gecco"
+
 SYSTEM_EMAIL = "lamasoftware@science.ru.nl"
 
 #An informative description for this system:
@@ -55,8 +59,6 @@ SYSTEM_DESCRIPTION = "Valkuil doet context-gevoelige spellingcorrectie voor het 
 SYSTEM_LICENSE = "Affero GNU Public License v3"
 
 SYSTEM_COVER_URL = "https://raw.githubusercontent.com/proycon/valkuil-frontend/master/valkuilnet/static/valkuil_logo.png"
-
-# ======== LOCATION ===========
 
 
 # ======== AUTHENTICATION & SECURITY ===========
