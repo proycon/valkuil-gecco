@@ -56,7 +56,7 @@ SYSTEM_EMAIL = "lamasoftware@science.ru.nl"
 #An informative description for this system:
 SYSTEM_DESCRIPTION = "Valkuil doet context-gevoelige spellingcorrectie voor het Nederlands, aangedreven door Gecco."
 
-SYSTEM_LICENSE = "Affero GNU Public License v3"
+SYSTEM_LICENSE = "Affero GNU General Public License v3"
 
 SYSTEM_COVER_URL = "https://raw.githubusercontent.com/proycon/valkuil-frontend/master/valkuilnet/static/valkuil_logo.png"
 
