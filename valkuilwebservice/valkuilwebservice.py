@@ -30,7 +30,7 @@ from base64 import b64decode as D
 import sys
 import os
 
-REQUIRE_VERSION = 2.3
+REQUIRE_VERSION = 3.0
 
 CLAMDIR = clam.__path__[0] #directory where CLAM is installed, detected automatically
 WEBSERVICEDIR = os.path.dirname(os.path.abspath(__file__)) #directory where this webservice is installed, detected automatically
@@ -43,10 +43,18 @@ WEBSERVICEDIR = os.path.dirname(os.path.abspath(__file__)) #directory where this
 SYSTEM_ID = "valkuil"
 
 #System name, the way the system is presented to the world
-SYSTEM_NAME = "Valkuil"
+SYSTEM_NAME = "Valkuil.net"
+
+SYSTEM_AUTHOR = "Maarten van Gompel, Antal van den Bosch"
+
+SYSTEM_EMAIL = "lamasoftware@science.ru.nl"
 
 #An informative description for this system:
-SYSTEM_DESCRIPTION = "Valkuil Spellingcorrectie voor het Nederlands. Aangedreven door Gecco."
+SYSTEM_DESCRIPTION = "Valkuil doet context-gevoelige spellingcorrectie voor het Nederlands, aangedreven door Gecco."
+
+SYSTEM_LICENSE = "Affero GNU Public License v3"
+
+SYSTEM_COVER_URL = "https://raw.githubusercontent.com/proycon/valkuil-frontend/master/valkuilnet/static/valkuil_logo.png"
 
 # ======== LOCATION ===========
 
@@ -95,7 +103,32 @@ STYLE = 'classic'
 # ======= INTERFACE OPTIONS ===========
 
 #Here you can specify additional interface options (space separated list), see the documentation for all allowed options
-#INTERFACEOPTIONS = "inputfromweb" #allow CLAM to download its input from a user-specified url
+INTERFACEOPTIONS = "inputfromweb,centercover" #allow CLAM to download its input from a user-specified url
+
+CUSTOMCSS = """
+#cover {
+    background: transparent;
+}
+"""
+
+CUSTOMHTML_INDEX = """
+<p>Valkuil.net is een automatische spellingcorrector voor het
+Nederlands die zowel gewone typefouten als grammaticale fouten en
+verwarringen tussen bestaande woorden opspoort.</p>
+
+<p>Valkuil.net is gebaseerd op grote hoeveelheden Nederlandse
+tekst, en niet op taalkundige kennis of een vaste woordenlijst. De
+meeste modules in valkuil.net zijn
+<i>contextgebaseerd</i> en <i>statistisch</i>: ze slaan alarm wanneer
+ze een woord tegenkomen dat ze niet verwachten op basis van de
+omgeving waarin dat woord staat. Het enthousiasme waarmee ze alarm
+slaan is instelbaar.</p>
+
+<p>Valkuil.net bevat modules voor hele specifieke verwarringen,
+zoals <i>zei</i>-<i>zij</i>, maar ook voor fouten met vervoegingen
+zoals de bekende <i>d</i>-<i>t</i>-fout. Valkuil.net doet ook zijn best om
+vergeten spaties of teveel gezette spaties op te sporen.</p>
+"""
 
 # ======== PREINSTALLED DATA ===========
 
@@ -187,13 +220,25 @@ PARAMETERS =  [
 # ======== ACTIONS ===========
 
 ACTIONS = [
-    Action(id="process_sentence", name="Process Sentence", description="Processes a single tokenised sentence and returns a JSON reply containing suggestions for correction",
+    Action(id="process", name="Tekstcorrectie", description="Controleer een Nederlandse tekst op spelfouten.",
+        command=WEBSERVICEDIR + "/process_sentence.py "  + VALKUILDIR + " $PARAMETERS",
+        allowanonymous=True,
+        tmpdir=True,
+        mimetype="application/xml",
+        parameters=[
+            TextParameter(id="text",name="Tekst",description="Voer hier je tekst in:",required=True),
+        ],
+        viewers=[
+            FLATViewer(url=FLATURL, configuration="valkuil", mode='viewer'),
+        ]
+    ),
+    Action(id="process_sentence", name="Snelle zinscorrectie (geavanceerd)", description="Verwerkt één voorgetokeniseerde zin en geeft een JSON antwoord terug met suggesties voor correctie.",
         command=WEBSERVICEDIR + "/process_sentence.py "  + VALKUILDIR + " $PARAMETERS",
         allowanonymous=True,
         tmpdir=True,
         mimetype="application/json",
         parameters=[
-        StringParameter(id="sentence",name="Sentence",description="The sentence to check, must be tokenised!",required=True),
+        StringParameter(id="sentence",name="Zinsinvoer",description="Één zin om te controleren, moet al getokeniseerd zijn! (losgesplitse woorden en punctuatie)",required=True),
     ])
 ]
 # ======== DISPATCHING (ADVANCED! YOU CAN SAFELY SKIP THIS!) ========
