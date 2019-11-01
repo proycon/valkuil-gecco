@@ -23,7 +23,7 @@ with io.open('text.txt', 'w', encoding='utf-8') as f:
     f.write(text)
 
 #gecco will output JSON to stdout
-cmd = "gecco " + shellsafe(VALKUILDIR + '/valkuil.yml','"') + " run -o output.folia.xml test.txt"
+cmd = "gecco " + shellsafe(VALKUILDIR + '/valkuil.yml','"') + " run -o output.folia.xml text.txt"
 print("Invoking gecco: " + cmd,file=sys.stderr)
 returncode = subprocess.call(cmd,shell=True, stderr=sys.stderr)
 os.system("cat output.folia.xml")
