@@ -223,7 +223,7 @@ PARAMETERS =  [
 
 ACTIONS = [
     Action(id="process", name="Tekstcorrectie", description="Controleer een Nederlandse tekst op spelfouten.",
-        command=WEBSERVICEDIR + "/process_text.py "  + VALKUILDIR + " $PARAMETERS",
+        command="python " + shellsafe(WEBSERVICEDIR + "/process_text.py",'"') +  " " + shellsafe(VALKUILDIR,'"') + " $PARAMETERS",
         allowanonymous=True,
         tmpdir=True,
         mimetype="application/xml",
@@ -235,7 +235,7 @@ ACTIONS = [
         ]
     ),
     Action(id="process_sentence", name="Snelle zinscorrectie (geavanceerd)", description="Verwerkt één voorgetokeniseerde zin en geeft een JSON antwoord terug met suggesties voor correctie.",
-        command=WEBSERVICEDIR + "/process_sentence.py "  + VALKUILDIR + " $PARAMETERS",
+        command="python " + shellsafe(WEBSERVICEDIR + "/process_sentence.py",'"') +  " " + shellsafe(VALKUILDIR,'"') + " $PARAMETERS",
         allowanonymous=True,
         tmpdir=True,
         mimetype="application/json",
