@@ -19,11 +19,13 @@ shellsafe = clam.common.data.shellsafe
 VALKUILDIR = sys.argv[1]
 text = sys.argv[2]
 
-with io.open('text.txt', 'w', encoding='utf-8') as f:
+filename = "input-" + str("%x" % random.getrandbits(64)) + ".txt"
+
+with io.open(filename, 'w', encoding='utf-8') as f:
     f.write(text)
 
 #gecco will output JSON to stdout
-cmd = "gecco " + shellsafe(VALKUILDIR + '/valkuil.yml','"') + " run -o output.folia.xml text.txt"
+cmd = "gecco " + shellsafe(VALKUILDIR + '/valkuil.yml','"') + " run -o output.folia.xml " + filename
 print("Invoking gecco: " + cmd,file=sys.stderr)
 returncode = subprocess.call(cmd,shell=True, stderr=sys.stderr)
 os.system("cat output.folia.xml")
