@@ -222,7 +222,7 @@ PARAMETERS =  [
 # ======== ACTIONS ===========
 
 ACTIONS = [
-    Action(id="process", name="Tekstcorrectie", description="Controleer een Nederlandse tekst op spelfouten.",
+    Action(id="process", name="Tekstcorrectie", description="Controleer een Nederlandse tekst op spelfouten.",method="POST",
         command="python " + shellsafe(WEBSERVICEDIR + "/process_text.py",'"') +  " " + shellsafe(VALKUILDIR,'"') + " $PARAMETERS",
         allowanonymous=True,
         tmpdir=True,
