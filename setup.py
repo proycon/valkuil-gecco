@@ -12,7 +12,7 @@ def read(fname):
 
 setup(
     name = "valkuilwebservice",
-    version = "2.0",
+    version = "2.0.1",
     author = "Maarten van Gompel",
     author_email = "proycon@anaproy.nl",
     description = ("Spelling correction webservice"),
@@ -35,5 +35,5 @@ setup(
     ],
     package_data = {'valkuilwebservice':['*.yml','*.wsgi'] },
     include_package_data=True,
-    install_requires=['CLAM >= 2.3', 'natsort', 'gecco']
+    install_requires=['CLAM >= 3.0', 'natsort', 'gecco']
 )
