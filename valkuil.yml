@@ -1,5 +1,5 @@
 id: valkuil
-root: /var/www/lamachine2/weblamachine/src/valkuil-gecco:/scratch2/www/valkuil-gecco:/vol/tensusers/proycon/valkuil-gecco:/usr/src/valkuil-gecco
+root: /var/www/lamachine2/weblamachine/src/valkuil-gecco:/scratch2/www/valkuil-gecco:/vol/tensusers/proycon/valkuil-gecco:/usr/src/valkuil-gecco:/usr/local/src/valkuil-gecco
 language: nld
 threads: 12
 debug: 0
