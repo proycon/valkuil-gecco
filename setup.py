@@ -12,7 +12,7 @@ def read(fname):
 
 setup(
     name = "valkuilwebservice",
-    version = "2.0.1",
+    version = "2.0.2",
     author = "Maarten van Gompel",
     author_email = "proycon@anaproy.nl",
     description = ("Spelling correction webservice"),
