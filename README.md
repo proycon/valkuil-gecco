@@ -1,4 +1,5 @@
-[![Language Machines Badge](http://applejack.science.ru.nl/lamabadge.php/valkuil-gecco)](http://applejack.science.ru.nl/languagemachines/) [![GitHub release](https://img.shields.io/github/release/LanguageMachines/frog.svg)](https://GitHub.com/proycon/valkuil-gecco/releases/) [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
+[![Language Machines Badge](http://applejack.science.ru.nl/lamabadge.php/valkuil-gecco)](http://applejack.science.ru.nl/languagemachines/) [![GitHub release](https://img.shields.io/github/release/LanguageMachines/frog.svg)](https://GitHub.com/proycon/valkuil-gecco/releases/) 
+[![Project Status: Unsupported – The project has reached a stable, usable state but the author(s) have ceased all work on it. A new maintainer may be desired.](https://www.repostatus.org/badges/latest/unsupported.svg)](https://www.repostatus.org/#unsupported)
 
 
 Valkuil.net powered by GECCO
