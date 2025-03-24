@@ -35,5 +35,5 @@ setup(
     ],
     package_data = {'valkuilwebservice':['*.yml','*.wsgi'] },
     include_package_data=True,
-    install_requires=['CLAM >= 3.0', 'natsort', 'gecco']
+    install_requires=['CLAM >= 3.0', 'natsort', 'gecco @ git+https://github.com/proycon/gecco']
 )
